@@ -10,7 +10,7 @@
 3. **Summary.** At now I work in National Academy of Science of Belarus on engineer-programmer position. I have some experience in desktop and web development. I made some interfaces and some features for [ANALYSIS OF RELIABILITY 
 AND SURVIVABILITY OF ON-BOARD EQUIPMENT OF SMALL SATELLITES](https://journals.ssau.ru/index.php/vestnik/article/view/5624). Also I made some desktop programs used C++ Qt. At now I make blockchain network and chaincode based on Hyperledger Fabric and node JS. I sure after the course i can use JS better and more efficient and I can made more beautiful sites. The course is good experience for me to get best practices and also show my skills and my well ability to study new things.
 ## Skills @ Code Examples
-4. Skills
+4. **Skills**
     1. Programming languages:
         1. C++ / *It's my main language;*
         2. HTML+CSS+JS / *The second stack that I use;*
@@ -19,7 +19,7 @@ AND SURVIVABILITY OF ON-BOARD EQUIPMENT OF SMALL SATELLITES](https://journals.ss
         1. C++ Qt;
         2. JQuery, Ajax, CanvasXpress.
     3. Git control version system
-5. Code examples:
+5. **Code examples:**
     1. C++ Qt code example:
     ```cpp
     void Scatter3D::parseData()
@@ -161,4 +161,8 @@ AND SURVIVABILITY OF ON-BOARD EQUIPMENT OF SMALL SATELLITES](https://journals.ss
         document.getElementById('statusDiv').innerHTML = '<div class="statusText">'+'FSGUI'+'</div><div class="statusSeparator">|</div><div class="statusText">'+'Вся популяция'+'</div><div class="statusSeparator">|</div><div class="statusText">'+'Генерация '+$('#inp3Tool').val()+' из '+maxStep+'</div>';
     }
     ```
-    
+## Experience & Education
+6. **Experience.** I have some experience in desktop and web development. I made some interfaces and some features for [ANALYSIS OF RELIABILITY 
+AND SURVIVABILITY OF ON-BOARD EQUIPMENT OF SMALL SATELLITES](https://journals.ssau.ru/index.php/vestnik/article/view/5624). Also I made some desktop programs used C++ Qt. At now I make blockchain network and chaincode based on Hyperledger Fabric and node JS. 
+7. **Education.** From 2010 to 2015 years I studied in Belarus National Technique University on cathedra Intelligent systems. From 2017 to 2019 years I studied at magistracy.
+8. **English.** I have **Elementary** English level (A2) after Elementary course of Streamline English school. Now I study Pre-intermediate (A2+) course in Streamline English school. 

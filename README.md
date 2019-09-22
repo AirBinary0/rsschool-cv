@@ -1,2 +1,1 @@
-# rsschool-cv
-init: start Git &amp; Markdown task
+https://airbinary0.github.io/rsschool-cv/cv

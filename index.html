@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="./assets/styles/style.css">
+  <title>Resume for "Junior JS developer" position</title>
+</head>
+<body>
+  <div class="content">
+    <div class="header">
+      <h1>Resume for "Junior JS developer" position</h1>
+      <hr>
+    </div>
+    <div class="base_header"><h2>Base information about me</h2><hr></div>
+    <div class="profile_photo"><img src="./assets/images/photo.jpg" alt="Profile photo"></div>
+    <div class="base_info">
+      <ol>
+        <li>My name is Dzmitry Kim. I am 26 age old. I am from Belarus and now I am live in Minsk.</li>
+        <li>If you want contact with me, use one or more ways below:
+          <ol>
+            <li><b>Mobile phone:</b> +375-29-355-90-27 (Velcom/A1);</li>
+            <li><b>Mobile phone, Viber, Telegram:</b> +375-33-632-57-92 (MTS);</li>
+            <li><b>E-mails:</b> <a href="mailto:d.kim2009@tut.by">d.kim2009@tut.by</a>, <a href="mailto:d.kim2009k@gmail.com">d.kim2009k@gmail.com</a>;</li>
+            <li><b>Skype:</b> <i>reduserdemon</i>;</li>
+            <li><b>Discord:</b> DzmitryKim#0080.</li>
+          </ol>
+        </li>
+        <li><b>Summary.</b> At now I work in National Academy of Science of Belarus on engineer-programmer position. I have some experience in desktop and web development. I made some interfaces and some features for <a href="https://journals.ssau.ru/index.php/vestnik/article/view/5624">ANALYSIS OF RELIABILITY AND SURVIVABILITY OF ON-BOARD EQUIPMENT OF SMALL SATELLITES</a>. Also I made some desktop programs used C++ Qt. At now I make blockchain network and chaincode based on Hyperledger Fabric and node JS. I sure after the course i can use JS better and more efficient and I can made more beautiful sites. The course is good experience for me to get best practices and also show my skills and my well ability to study new things.</li>
+      </ol>
+    </div>
+    <div class="skills_header"><h2>Skills @ Code Examples</h2><br></div>
+    <div class="skills">
+      <ol start="4">
+        <li><b>Skills</b>
+          <ol>
+            <li>Programming languages:
+              <ol>
+                <li>C++ / <i>It's my main language</i>;</li>
+                <li>HTML+CSS+JS / <i>The second stack that I use</i>;</li>
+                <li>C#, Java / <i>A little bit</i>.</li>
+              </ol>
+            </li>
+            <li>Frameworks:
+              <ol>
+                <li>C++ Qt;</li>
+                <li>JQuery, Ajax, CanvasXpress.</li>
+              </ol>
+            </li>
+            <li>Git control version system</li>
+          </ol>
+        </li>
+        <li><b>Code examples:</b>
+          <ol>
+            <li>C++ Qt code example:
+              <pre>
+                <code>
+void Scatter3D::parseData()
+{
+  container->setVisible(false);
+  loadProgress->setMaximum(file.count()*2);
+  loadProgress->setValue(1);
+  loadProgress->setVisible(true);
+  label->setVisible(true);
+  //----- file edit -----
+  while (file.last()=="")
+      file.removeLast();
+  //----- end file edit -----
+  removeAllSeries();
+
+  //----- Get cluster count -----
+  int max_number = 0;
+  cluster_items_count.clear();
+  maxCol = file[0].split('\t').count()-1;
+  emit setSpin(8,2,maxCol,firstCol);
+  emit setSpin(9,2,maxCol,secondCol);
+  emit setSpin(10,2,maxCol,thirdCol);
+  for (int i=0; i<file.count(); i++)
+  {
+      int mark = file[i].split('\t')[1].toInt();
+      if (mark >= max_number)
+      {
+          max_number = mark;
+          while (cluster_items_count.length()<=max_number)
+          {
+              cluster_items_count.append(0);
+          }
+      }
+      loadProgress->setValue(loadProgress->value()+1);
+      cluster_items_count.replace(mark,cluster_items_count.at(mark)+1);
+  }
+  cluster_count = max_number+1;
+  //----- End cluster count -----
+
+  //----- Configure axes headers -----
+  graph->axisX()->setTitle("X");
+  graph->axisY()->setTitle("Y");
+  graph->axisZ()->setTitle("Z");
+
+  for (int i=0; i<cluster_count; i++)
+  {
+      QScatterDataProxy *proxy = new QScatterDataProxy;
+      QScatter3DSeries *series = new QScatter3DSeries(proxy);
+      series->setName(QStringLiteral("Кластер # %1").arg(i));
+      series->setItemLabelFormat(QStringLiteral("@seriesName. @xTitle: @xLabel @yTitle: @yLabel @zTitle: @zLabel"));
+      series->setMeshSmooth(true);
+      graph->addSeries(series);
+      QScatterDataArray *dataArray = new QScatterDataArray;
+      dataArray->resize(cluster_items_count.at(i)!=0?cluster_items_count.at(i):1);
+      allClusterDataArrays.append(dataArray);
+      QScatterDataItem * ptrToDataArray = &dataArray->first();
+      allPointersToDataArray.append(ptrToDataArray);
+  }
+
+  //----- Insert data -----
+  QStringList pieces;
+  for (int i=0; i<file.count(); i++)
+  {
+      pieces = file[i].split('\t');
+      int mark = pieces[1].toInt();
+      QScatterDataItem *ptrToDataArray = allPointersToDataArray.at(mark);
+      ptrToDataArray->setPosition(QVector3D(pieces[firstCol].toDouble(),
+                                          pieces[secondCol].toDouble(),
+                                          pieces[thirdCol].toDouble()));
+      allPointersToDataArray.replace(mark,ptrToDataArray+1);
+      loadProgress->setValue(loadProgress->value()+1);
+      //if (i=0)
+  }
+  //----- End insert data
+  for (int i=0; i<cluster_count; i++)
+  {
+      graph->seriesList().at(i)->dataProxy()->resetArray(allClusterDataArrays.at(i));
+  }
+  loadProgress->setVisible(false);
+  label->setVisible(false);
+  container->setVisible(true);
+  this->setFocus();
+  connect(graph,SIGNAL(activeChanged()),this,SLOT(setWindowFocus()));
+}
+                </code>
+              </pre>
+            </li>
+            <li>js code example:
+              <pre>
+                <code>
+function repaintFeatureAll(){
+canvasZero = null;
+$('#graphFrame').html(***);
+rtr();
+document.getElementById('preloader').style.display = 'block';
+var gen =  $('#inp3Tool').val();
+var dataCan = new Object();
+    var ann = [];
+dataCan.x = {};
+for (i=popSize*(gen-1); i < popSize*gen;i++){
+    ann.push(i);
+}
+dataCan.x.Species = ann;
+dataCan.y = {};
+    ann = [];
+for(var i=0; i < dataFirst[0].length; i++){
+    ann.push('K'+i);
+}
+dataCan.y.vars = ann;
+
+ann = [];
+for (var i=popSize*(gen-1); i < popSize*gen; i++){
+    ann.push(i);
+}
+dataCan.y.smps = ann;
+ann = [];
+for (var i=0; i < dataFirst[0].length; i++) {
+    setD = [];
+    for (var j=popSize*(gen-1); j < popSize*gen; j++){
+        setD.push(dataFirst[j][i]);
+    }
+    ann.push(setD);
+}
+dataCan.y.data = ann;
+console.log(dataFirst);
+var conf = {"axisAlgorithm": "wilkinson",
+            "axisMinMaxTickTickWidth": false,
+            "codeType": "pretty",
+            "graphOrientation": "vertical",
+            "missingDataValue": "NA",
+            "smpDendrogramNewick": false,
+            "summaryType": "raw",
+            "title": "Вся популяция (gen "+$('#inp3Tool').val()+")",
+            "varDendrogramNewick": false,
+            "smpLabelRotate": 90,
+            "xAxis": [
+                "Важность"
+            ],
+            "xAxisTitle": "Важность"};
+showCanvas(dataCan,conf,0); 
+document.getElementById('preloader').style.display = 'none';
+document.getElementById('statusDiv').innerHTML = '***';
+}
+                </code>
+              </pre>
+            </li>
+          </ol>
+        </li>
+      </ol>
+    </div>
+    <div class="exp_header"><h2>Experience & Education</h2><hr></div>
+    <div class="exp">
+      <ol start="6">
+        <li><b>Experience.</b> I have some experience in desktop and web development. I made some interfaces and some features for <a href="https://journals.ssau.ru/index.php/vestnik/article/view/5624">ANALYSIS OF RELIABILITY AND SURVIVABILITY OF ON-BOARD EQUIPMENT OF SMALL SATELLITES</a>. Also I made some desktop programs used C++ Qt. At now I make blockchain network and chaincode based on Hyperledger Fabric and node JS.</li>
+        <li><b>Education.</b> From 2010 to 2015 years I studied in Belarus National Technique University on cathedra Intelligent systems. From 2017 to 2019 years I studied at magistracy.</li>
+        <li><b>English.</b> I have <b>Elementary</b> English level (A2) after Elementary course of Streamline English school. Now I study Pre-intermediate (A2+) course in Streamline English school.</li>
+      </ol>
+    </div>
+    <div class="footer">
+      <hr>
+      <p>HTML, CSS & Git Basics task special for RSSchool</p>
+    </div>
+  </div>
+</body>
+</html>

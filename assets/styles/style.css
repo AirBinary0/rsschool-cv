@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: white;
+}
+
+.content {
+  display: grid;
+  width: 1024px;
+  height: auto;
+  margin: 0 auto;
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: auto;
+  row-gap: 20px;
+  column-gap: 30px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+}
+
+.header {
+  grid-row: 1 / span 1;
+  grid-column: 1 / span 2;
+}
+
+.header h1 {
+  margin: 20px 0;
+}
+
+.base_header {
+  grid-row: 2 / span 1;
+  grid-column: 1 / span 2;
+}
+
+.base_header h2 {
+  margin-bottom: 16px;
+}
+
+.profile_photo {
+  grid-row: 3 / span 1;
+  grid-column: 1 / span 1;
+  margin: auto 0;
+}
+
+.base_info {
+  grid-row: 3 / span 1;
+  grid-column: 2 / span 1;
+}
+
+.skills_header {
+  grid-row: 4 / span 1;
+  grid-column: 1 / span 2;
+}
+
+.skills_header h2 {
+  margin-bottom: 16px;
+}
+
+.skills {
+  grid-row: 5 / span 1;
+  grid-column: 1 / span 2;
+}
+
+.exp_header {
+  grid-row: 6 / span 1;
+  grid-column: 1 / span 2;
+}
+
+.exp_header h2 {
+  margin-bottom: 16px;
+}
+
+.exp {
+  grid-row: 7 / span 1;
+  grid-column: 1 / span 2;
+}
+
+.footer {
+  grid-row: 8 / span 1;
+  grid-column: 1 / span 2;
+  text-align: center;
+}
+
+.footer p {
+  margin: 20px 0;
+}
+
+img {
+  width: 300px;
+  margin: auto 0;
+  grid-row: 3 / span 1;
+  grid-column: 1 / span 1;
+}
+
+ol {
+  padding-left: 2em;
+}
+
+pre {
+  background-color: lightgray;
+}
+
+li {
+  text-align: justify;
+}
